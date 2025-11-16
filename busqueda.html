@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Periféricos y Computadores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        🚚 ENVÍOS GRATIS A TODA COLOMBIA - Compra ahora y recibe en 24-48 horas
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🖥️ TechStore</div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#ofertas">Ofertas</a></li>
+                <li><a href="#marcas">Marcas</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" onclick="toggleSearch()">🔍</button>
+                <button class="icon-btn" onclick="alert('Usuario')">👤</button>
+                <button class="icon-btn" onclick="alert('Carrito')">
+                    🛒
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <h1>🎮 Equipos Gamer de Alto Rendimiento</h1>
+        <p>Encuentra los mejores periféricos y computadores para gaming</p>
+        <button class="btn-primary" onclick="scrollToProducts()">Ver Productos</button>
+    </section>
+
+    <!-- Categories -->
+    <div class="container">
+        <h2 class="section-title">Categorías Populares</h2>
+        <div class="categories">
+            <div class="category-card" onclick="filterCategory('mouse')">
+                <div class="category-icon">🖱️</div>
+                <h3>Mouses</h3>
+                <p>Gaming y Oficina</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('teclado')">
+                <div class="category-icon">⌨️</div>
+                <h3>Teclados</h3>
+                <p>Mecánicos y RGB</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('monitor')">
+                <div class="category-icon">🖥️</div>
+                <h3>Monitores</h3>
+                <p>Alta Frecuencia</p>
+            </div>
+            <div class="category-card" onclick="filterCategory('audifonos')">
+                <div class="category-icon">🎧</div>
+                <h3>Audífonos</h3>
+                <p>Sonido Premium</p>
+            </div>
+        </div>
+
+        <!-- Products -->
+        <h2 class="section-title" id="productos">Productos Destacados</h2>
+        <div class="products-grid" id="productsGrid">
+            <!-- Products will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🖥️ TechStore</h3>
+                <p>Tu tienda de confianza para periféricos y equipos gaming. Calidad garantizada y los mejores precios del mercado.</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Garantías</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                    <li><a href="#">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📞 +57 123 456 7890</li>
+                    <li>📧 info@techstore.com</li>
+                    <li>📍 Cúcuta, Colombia</li>
+                    <li>🕐 Lun-Vie: 9am-6pm</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

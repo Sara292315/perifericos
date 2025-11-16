@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Estilos específicos para la página de contacto */
+        .contact-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .contact-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .contact-hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        /* Formulario de contacto */
+        .contact-form-section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .contact-form-section p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Información de contacto */
+        .contact-info-section h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .contact-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            flex-shrink: 0;
+        }
+
+        .contact-card-content h3 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .contact-card-content p {
+            color: #666;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .contact-card-content a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-card-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mapa */
+        .map-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .map-container h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 450px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-placeholder {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #667eea;
+        }
+
+        .map-placeholder-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .map-placeholder p {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* Horarios */
+        .schedule-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .schedule-section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .schedule-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .schedule-card-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .schedule-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .schedule-card p {
+            color: #666;
+            line-height: 1.8;
+            margin: 5px 0;
+        }
+
+        .schedule-card .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        /* Alert de éxito */
+        .success-alert {
+            display: none;
+            background: #10b981;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: 500;
+            animation: slideIn 0.3s ease;
+        }
+
+        .success-alert.show {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-hero h1 {
+                font-size: 32px;
+            }
+
+            .map-frame {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        🚚 ENVÍOS GRATIS A TODA COLOMBIA - Compra ahora y recibe en 24-48 horas
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🖥️ TechStore</div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="index.html#ofertas">Ofertas</a></li>
+                <li><a href="index.html#marcas">Marcas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" onclick="toggleSearch()">🔍</button>
+                <button class="icon-btn" onclick="alert('Usuario')">👤</button>
+                <button class="icon-btn" onclick="alert('Carrito')">
+                    🛒
+                    <span class="cart-count">3</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero de Contacto -->
+    <section class="contact-hero">
+        <h1>📞 Contáctanos</h1>
+        <p>Estamos aquí para ayudarte. Envíanos un mensaje y te responderemos pronto.</p>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <div class="contact-container">
+        <div class="contact-grid">
+            <!-- Formulario -->
+            <div class="contact-form-section">
+                <h2>Envíanos un mensaje</h2>
+                <p>Completa el formulario y nos pondremos en contacto contigo lo antes posible.</p>
+                
+                <div class="success-alert" id="successAlert">
+                    ✅ ¡Mensaje enviado con éxito! Te contactaremos pronto.
+                </div>
+
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre completo *</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Correo electrónico *</label>
+                            <input type="email" id="email" name="email" required placeholder="juan@ejemplo.com">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telefono">Teléfono *</label>
+                            <input type="tel" id="telefono" name="telefono" required placeholder="+57 123 456 7890">
+                        </div>
+                        <div class="form-group">
+                            <label for="asunto">Asunto *</label>
+                            <select id="asunto" name="asunto" required>
+                                <option value="">Selecciona un asunto</option>
+                                <option value="consulta">Consulta de producto</option>
+                                <option value="soporte">Soporte técnico</option>
+                                <option value="garantia">Garantía</option>
+                                <option value="pedido">Estado de pedido</option>
+                                <option value="otro">Otro</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje *</label>
+                        <textarea id="mensaje" name="mensaje" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Mensaje 📤</button>
+                </form>
+            </div>
+
+            <!-- Información de Contacto -->
+            <div class="contact-info-section">
+                <h2>Información de contacto</h2>
+                
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-card-content">
+                            <h3>Dirección</h3>
+                            <p>Calle 10 #15-25<br>
+                            Centro Comercial TechPlaza, Local 203<br>
+                            Cúcuta, Norte de Santander<br>
+                            Colombia</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-card-content">
+                            <h3>Teléfono</h3>
+                            <p>Ventas: <a href="tel:+573001234567">+57 300 123 4567</a><br>
+                            Soporte: <a href="tel:+573007654321">+57 300 765 4321</a><br>
+                            WhatsApp: <a href="https://wa.me/573001234567">+57 300 123 4567</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-card-content">
+                            <h3>Correo electrónico</h3>
+                            <p>Ventas: <a href="mailto:ventas@techstore.com">ventas@techstore.com</a><br>
+                            Soporte: <a href="mailto:soporte@techstore.com">soporte@techstore.com</a><br>
+                            General: <a href="mailto:info@techstore.com">info@techstore.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <div class="contact-icon">💬</div>
+                        <div class="contact-card-content">
+                            <h3>Redes sociales</h3>
+                            <p>Síguenos en nuestras redes:<br>
+                            Facebook • Instagram • Twitter<br>
+                            @TechStoreColombia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Horarios de atención -->
+    <section class="schedule-section">
+        <h2>Horarios de Atención</h2>
+        <div class="schedule-grid">
+            <div class="schedule-card">
+                <div class="schedule-card-icon">🏪</div>
+                <h3>Tienda Física</h3>
+                <p><span class="highlight">Lunes a Viernes:</span> 9:00 AM - 7:00 PM</p>
+                <p><span class="highlight">Sábados:</span> 9:00 AM - 6:00 PM</p>
+                <p><span class="highlight">Domingos:</span> 10:00 AM - 2:00 PM</p>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-card-icon">💬</div>
+                <h3>Chat en Línea</h3>
+                <p><span class="highlight">Lunes a Viernes:</span> 8:00 AM - 8:00 PM</p>
+                <p><span class="highlight">Sábados:</span> 9:00 AM - 6:00 PM</p>
+                <p><span class="highlight">Domingos:</span> Cerrado</p>
+            </div>
+
+            <div class="schedule-card">
+                <div class="schedule-card-icon">📱</div>
+                <h3>WhatsApp</h3>
+                <p><span class="highlight">Todos los días:</span></p>
+                <p>Respuesta automática 24/7</p>
+                <p>Atención personalizada en horario comercial</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="map-section">
+        <div class="map-container">
+            <h2>📍 Encuéntranos</h2>
+            <div class="map-frame">
+                <!-- Aquí puedes insertar tu mapa de Google Maps -->
+                <div class="map-placeholder">
+                    <div class="map-placeholder-icon">🗺️</div>
+                    <p>Calle 10 #15-25, Cúcuta, Norte de Santander</p>
+                    <p style="font-size: 14px; margin-top: 10px; color: #999;">
+                        Inserta aquí tu iframe de Google Maps
+                    </p>
+                </div>
+                <!-- Ejemplo de código de Google Maps (reemplaza con tu ubicación):
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.835434509374!2d-122.41941548468146!3d37.77492977975903!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM3zCsDQ2JzI5LjciTiAxMjLCsDI1JzA5LjkiVw!5e0!3m2!1sen!2sus!4v1234567890123!5m2!1sen!2sus" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🖥️ TechStore</h3>
+                <p>Tu tienda de confianza para periféricos y equipos gaming. Calidad garantizada y los mejores precios del mercado.</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Garantías</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📞 +57 300 123 4567</li>
+                    <li>📧 info@techstore.com</li>
+                    <li>📍 Cúcuta, Colombia</li>
+                    <li>🕐 Lun-Vie: 9am-7pm</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle mobile menu
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Handle form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Aquí puedes agregar la lógica para enviar el formulario a un servidor
+            // Por ahora, solo mostramos el mensaje de éxito
+            
+            const successAlert = document.getElementById('successAlert');
+            successAlert.classList.add('show');
+            
+            // Limpiar el formulario
+            document.getElementById('contactForm').reset();
+            
+            // Scroll suave hacia el mensaje de éxito
+            successAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            
+            // Ocultar el mensaje después de 5 segundos
+            setTimeout(() => {
+                successAlert.classList.remove('show');
+            }, 5000);
+        }
+
+        // Toggle search (placeholder para mantener consistencia)
+        function toggleSearch() {
+            alert('Función de búsqueda disponible en la página principal');
+        }
+    </script>
+</body>
+</html>
