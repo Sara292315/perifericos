@@ -74,6 +74,28 @@ const products = [
     }
 ];
 
+// Obtener carrito del localStorage
+function getCart() {
+    const cart = localStorage.getItem('cart');
+    return cart ? JSON.parse(cart) : [];
+}
+
+// Guardar carrito en localStorage
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
+
+// Actualizar contador del carrito
+function updateCartCount() {
+    const cart = getCart();
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountElements = document.querySelectorAll('.cart-count');
+    cartCountElements.forEach(el => {
+        el.textContent = totalItems;
+    });
+}
+
 // Format price to COP
 function formatPrice(price) {
     return new Intl.NumberFormat('es-CO', {
