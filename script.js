@@ -74,8 +74,6 @@ const products = [
     }
 ];
 
-
-
 // Format price to COP
 function formatPrice(price) {
     return new Intl.NumberFormat('es-CO', {
@@ -93,7 +91,7 @@ function renderProducts(filteredProducts = products) {
     filteredProducts.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
-        productCard.onclick = () => showProductDetail(product);
+        productCard.onclick = () => viewProduct(product.id);
         
         productCard.innerHTML = `
             <div class="product-image">${product.icon}</div>
@@ -104,14 +102,24 @@ function renderProducts(filteredProducts = products) {
                     ${product.oldPrice ? `<span class="price-old">${formatPrice(product.oldPrice)}</span>` : ''}
                 </div>
                 ${product.discount > 0 ? `<span class="discount-badge">-${product.discount}% OFF</span>` : ''}
-                <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(${product.id})">
-                    informacion
+                <button class="btn-add-cart" onclick="event.stopPropagation(); viewProduct(${product.id})">
+                    Ver Detalles 🛒
                 </button>
             </div>
         `;
         
         grid.appendChild(productCard);
     });
+}
+
+// View product details - NUEVA FUNCIÓN
+function viewProduct(productId) {
+    console.log('🔍 Seleccionando producto ID:', productId);
+    // Guardar el ID en localStorage
+    localStorage.setItem('selectedProduct', productId);
+    console.log('💾 Producto guardado en localStorage');
+    // Navegar a la página de detalles
+    window.location.href = 'producto.html';
 }
 
 // Filter by category
@@ -123,10 +131,10 @@ function filterCategory(category) {
     document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
 }
 
-
-// Show product detail
-function showProductDetail(product) {
-    alert(`📦 ${product.name}\n💰 Precio: ${formatPrice(product.price)}\n\n¡Haz clic en "Agregar al Carrito" para comprar!`);
+// Add to cart (opcional)
+function addToCart(productId) {
+    const product = products.find(p => p.id === productId);
+    alert(`✅ ${product.name} agregado al carrito`);
 }
 
 // Scroll to products

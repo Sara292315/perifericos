@@ -1,3 +1,11 @@
+// VERSIÓN DE PRUEBA - product-detail.js
+console.log('✅ Archivo product-detail.js cargado correctamente');
+
+// Función para formatear precios
+function formatPrice(price) {
+    return '$' + price.toLocaleString('es-CO');
+}
+
 // Datos de productos extendidos
 const productsData = {
     1: {
@@ -178,59 +186,105 @@ const productsData = {
     }
 };
 
+console.log('✅ Datos de productos cargados:', Object.keys(productsData).length, 'productos');
+
 // Cargar detalles del producto
 document.addEventListener('DOMContentLoaded', function() {
-    const productId = parseInt(localStorage.getItem('selectedProduct'));
-    const product = productsData[productId];
+    console.log('🔄 DOMContentLoaded - Iniciando carga de producto...');
     
-    if (!product) {
-        alert('Producto no encontrado');
+    const storedId = localStorage.getItem('selectedProduct');
+    console.log('📦 ID almacenado en localStorage:', storedId);
+    
+    if (!storedId || storedId === 'null') {
+        console.error('❌ No hay ID de producto en localStorage');
+        alert('⚠️ No se seleccionó ningún producto. Redirigiendo al inicio...');
         window.location.href = 'index.html';
         return;
     }
     
+    const productId = parseInt(storedId);
+    console.log('🔢 ID convertido a número:', productId);
+    
+    const product = productsData[productId];
+    console.log('🎯 Producto encontrado:', product ? product.name : 'NO ENCONTRADO');
+    
+    if (!product) {
+        console.error('❌ Producto no encontrado. IDs disponibles:', Object.keys(productsData));
+        alert('❌ Producto no encontrado. ID buscado: ' + productId);
+        window.location.href = 'index.html';
+        return;
+    }
+    
+    console.log('✅ Actualizando página con datos del producto...');
+    
     // Actualizar breadcrumb
-    document.getElementById('breadcrumbProduct').textContent = product.name;
+    const breadcrumb = document.getElementById('breadcrumbProduct');
+    if (breadcrumb) breadcrumb.textContent = product.name;
     
     // Actualizar imagen
-    document.getElementById('productImage').textContent = product.icon;
+    const productImage = document.getElementById('productImage');
+    if (productImage) productImage.textContent = product.icon;
     
     // Actualizar título
-    document.getElementById('productTitle').textContent = product.name;
+    const productTitle = document.getElementById('productTitle');
+    if (productTitle) productTitle.textContent = product.name;
     
     // Actualizar precio
-    document.getElementById('productPrice').textContent = formatPrice(product.price);
+    const productPrice = document.getElementById('productPrice');
+    if (productPrice) productPrice.textContent = formatPrice(product.price);
     
     if (product.oldPrice) {
-        document.getElementById('priceInfo').innerHTML = `
-            <span class="old-price">${formatPrice(product.oldPrice)}</span>
-            <span class="savings">Ahorras ${formatPrice(product.oldPrice - product.price)} (-${product.discount}%)</span>
-        `;
+        const priceInfo = document.getElementById('priceInfo');
+        if (priceInfo) {
+            priceInfo.innerHTML = `
+                <span class="old-price">${formatPrice(product.oldPrice)}</span>
+                <span class="savings">Ahorras ${formatPrice(product.oldPrice - product.price)} (-${product.discount}%)</span>
+            `;
+        }
     }
     
     // Actualizar descripción
-    document.getElementById('productDescription').textContent = product.description;
+    const productDescription = document.getElementById('productDescription');
+    if (productDescription) productDescription.textContent = product.description;
     
     // Actualizar características
     const featuresList = document.getElementById('featuresList');
-    featuresList.innerHTML = product.features.map(feature => `<li>${feature}</li>`).join('');
+    if (featuresList) {
+        featuresList.innerHTML = product.features.map(feature => `<li>${feature}</li>`).join('');
+    }
     
     // Actualizar metadatos
-    document.getElementById('productCategory').textContent = product.category;
-    document.getElementById('productBrand').textContent = product.brand;
-    document.getElementById('productSku').textContent = product.sku;
+    const productCategory = document.getElementById('productCategory');
+    if (productCategory) productCategory.textContent = product.category;
+    
+    const productBrand = document.getElementById('productBrand');
+    if (productBrand) productBrand.textContent = product.brand;
+    
+    const productSku = document.getElementById('productSku');
+    if (productSku) productSku.textContent = product.sku;
     
     // Cargar productos relacionados
     loadRelatedProducts(product.category, product.id);
+    
+    console.log('✅ Página de producto cargada exitosamente');
 });
 
 // Cargar productos relacionados
 function loadRelatedProducts(category, currentId) {
+    console.log('🔗 Cargando productos relacionados de categoría:', category);
+    
     const related = Object.values(productsData)
         .filter(p => p.category === category && p.id !== currentId)
         .slice(0, 4);
     
+    console.log('📋 Productos relacionados encontrados:', related.length);
+    
     const container = document.getElementById('relatedProducts');
+    
+    if (!container) {
+        console.error('❌ No se encontró el contenedor de productos relacionados');
+        return;
+    }
     
     if (related.length === 0) {
         container.innerHTML = '<p style="text-align: center; color: #666;">No hay productos relacionados disponibles</p>';
@@ -254,13 +308,21 @@ function loadRelatedProducts(category, currentId) {
 
 // Ver detalles de producto (recarga la página)
 function viewProductDetail(productId) {
+    console.log('🔄 Cambiando a producto:', productId);
     localStorage.setItem('selectedProduct', productId);
     window.location.reload();
 }
 
 // Contactar vendedor
 function contactSeller() {
-    const product = productsData[parseInt(localStorage.getItem('selectedProduct'))];
+    const productId = parseInt(localStorage.getItem('selectedProduct'));
+    const product = productsData[productId];
+    
+    if (!product) {
+        alert('Error al obtener información del producto');
+        return;
+    }
+    
     const message = `Hola, estoy interesado en el producto: ${product.name} (SKU: ${product.sku})`;
     const whatsappUrl = `https://wa.me/573001234567?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
@@ -285,3 +347,5 @@ function addToCompare() {
     localStorage.setItem('compareList', JSON.stringify(compareList));
     alert('✅ Producto agregado a comparación');
 }
+
+console.log('✅ Todas las funciones cargadas correctamente');
