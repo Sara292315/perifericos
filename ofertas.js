@@ -30,6 +30,15 @@ function renderOffers(filteredOffers = offerProducts) {
     `).join('');
 }
 
+// Función para ver detalles del producto
+function viewProductDetail(productId) {
+    console.log('🔍 Guardando producto ID:', productId);
+    // Guardar el ID en localStorage
+    localStorage.setItem('selectedProduct', productId);
+    // Redirigir a producto.html
+    window.location.href = 'producto.html';
+}
+
 // Filtrar ofertas
 function filterOffers(type) {
     // Actualizar botones activos
