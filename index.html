@@ -21,7 +21,7 @@
             
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Inicio</a></li>
-                <li><a href="producto.html">Productos</a></li>
+                <li><a href="#productos">Productos</a></li>
                 <li><a href="ofertas.html">Ofertas</a></li>
                 <li><a href="marcas.html">Marcas</a></li>
                 <li><a href="contacto.html">¿Dudas?</a></li>
@@ -29,6 +29,10 @@
 
             <div class="nav-icons">
                 <button class="icon-btn" onclick="toggleSearch()">🔍</button>
+                <button class="icon-btn compare-btn" onclick="window.location.href='comparar.html'" title="Comparar productos">
+                    ⚖️
+                    <span class="compare-badge" id="compareBadge">0</span>
+                </button>
             </div>
         </nav>
         

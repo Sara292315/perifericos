@@ -91,10 +91,9 @@ function renderProducts(filteredProducts = products) {
     filteredProducts.forEach(product => {
         const productCard = document.createElement('div');
         productCard.className = 'product-card';
-        productCard.onclick = () => viewProduct(product.id);
         
         productCard.innerHTML = `
-            <div class="product-image">${product.icon}</div>
+            <div class="product-image" onclick="viewProduct(${product.id})">${product.icon}</div>
             <div class="product-info">
                 <h3 class="product-title">${product.name}</h3>
                 <div class="product-price">
@@ -102,9 +101,14 @@ function renderProducts(filteredProducts = products) {
                     ${product.oldPrice ? `<span class="price-old">${formatPrice(product.oldPrice)}</span>` : ''}
                 </div>
                 ${product.discount > 0 ? `<span class="discount-badge">-${product.discount}% OFF</span>` : ''}
-                <button class="btn-add-cart" onclick="event.stopPropagation(); viewProduct(${product.id})">
-                    Ver Detalles 🛒
-                </button>
+                <div class="product-actions">
+                    <button class="btn-add-cart" onclick="viewProduct(${product.id})">
+                        Ver Detalles 🛒
+                    </button>
+                    <button class="btn-compare-quick" onclick="addToCompare(${product.id})" title="Agregar a comparación">
+                        ⚖️
+                    </button>
+                </div>
             </div>
         `;
         
@@ -135,6 +139,40 @@ function filterCategory(category) {
 function addToCart(productId) {
     const product = products.find(p => p.id === productId);
     alert(`✅ ${product.name} agregado al carrito`);
+}
+
+// Agregar a comparación
+function addToCompare(productId) {
+    let compareList = JSON.parse(localStorage.getItem('compareList') || '[]');
+    
+    if (compareList.includes(productId)) {
+        alert('⚠️ Este producto ya está en tu lista de comparación');
+        return;
+    }
+    
+    if (compareList.length >= 4) {
+        alert('⚠️ Solo puedes comparar hasta 4 productos a la vez');
+        return;
+    }
+    
+    compareList.push(productId);
+    localStorage.setItem('compareList', JSON.stringify(compareList));
+    
+    const product = products.find(p => p.id === productId);
+    alert(`✅ ${product.name} agregado a comparación\n\nProductos en comparación: ${compareList.length}/4`);
+    
+    // Actualizar contador
+    updateCompareBadge();
+}
+
+// Actualizar badge de comparación
+function updateCompareBadge() {
+    const badge = document.getElementById('compareBadge');
+    if (badge) {
+        const compareList = JSON.parse(localStorage.getItem('compareList') || '[]');
+        badge.textContent = compareList.length;
+        badge.style.display = compareList.length > 0 ? 'flex' : 'none';
+    }
 }
 
 // Scroll to products
