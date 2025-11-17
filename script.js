@@ -74,27 +74,7 @@ const products = [
     }
 ];
 
-// Obtener carrito del localStorage
-function getCart() {
-    const cart = localStorage.getItem('cart');
-    return cart ? JSON.parse(cart) : [];
-}
 
-// Guardar carrito en localStorage
-function saveCart(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    updateCartCount();
-}
-
-// Actualizar contador del carrito
-function updateCartCount() {
-    const cart = getCart();
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const cartCountElements = document.querySelectorAll('.cart-count');
-    cartCountElements.forEach(el => {
-        el.textContent = totalItems;
-    });
-}
 
 // Format price to COP
 function formatPrice(price) {
@@ -125,7 +105,7 @@ function renderProducts(filteredProducts = products) {
                 </div>
                 ${product.discount > 0 ? `<span class="discount-badge">-${product.discount}% OFF</span>` : ''}
                 <button class="btn-add-cart" onclick="event.stopPropagation(); addToCart(${product.id})">
-                    Agregar al Carrito
+                    informacion
                 </button>
             </div>
         `;
@@ -143,15 +123,6 @@ function filterCategory(category) {
     document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });
 }
 
-// Add to cart
-function addToCart(productId) {
-    const product = products.find(p => p.id === productId);
-    alert(`✅ ${product.name} agregado al carrito`);
-    
-    // Update cart count
-    const cartCount = document.querySelector('.cart-count');
-    cartCount.textContent = parseInt(cartCount.textContent) + 1;
-}
 
 // Show product detail
 function showProductDetail(product) {
