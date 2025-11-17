@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del Producto - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .product-detail-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .breadcrumb {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 40px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .breadcrumb a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        .product-image-section {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .product-main-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 200px;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .product-info-section h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .product-rating {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .stars {
+            color: #ffc107;
+            font-size: 20px;
+        }
+
+        .rating-text {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .product-price-section {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .current-price {
+            font-size: 42px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .old-price {
+            font-size: 24px;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 15px;
+        }
+
+        .savings {
+            display: inline-block;
+            background: #10b981;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .product-description {
+            margin-bottom: 30px;
+        }
+
+        .product-description h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .product-description p {
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .product-features {
+            margin-bottom: 30px;
+        }
+
+        .product-features h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .features-list {
+            list-style: none;
+            display: grid;
+            gap: 12px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #666;
+            font-size: 15px;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background: #10b981;
+            color: white;
+            border-radius: 50%;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-contact {
+            flex: 1;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 18px;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .btn-compare {
+            padding: 18px 30px;
+            background: white;
+            color: #667eea;
+            border: 2px solid #667eea;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-compare:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .product-meta {
+            display: grid;
+            gap: 15px;
+            padding: 25px;
+            background: #f8f9fa;
+            border-radius: 15px;
+        }
+
+        .meta-item {
+            display: flex;
+            justify-content: space-between;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .meta-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .meta-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        .meta-value {
+            color: #333;
+            font-weight: 600;
+        }
+
+        .related-products {
+            margin-top: 80px;
+        }
+
+        .related-products h2 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        @media (max-width: 768px) {
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .product-image-section {
+                position: static;
+            }
+
+            .product-main-image {
+                font-size: 120px;
+            }
+
+            .product-info-section h1 {
+                font-size: 28px;
+            }
+
+            .current-price {
+                font-size: 32px;
+            }
+
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        🚚 ENVÍOS GRATIS A TODA COLOMBIA - Compra ahora y recibe en 24-48 horas
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🖥️ TechStore</div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="marcas.html">Marcas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" onclick="window.location.href='index.html'">🔍</button>
+                <button class="icon-btn" onclick="alert('Iniciar sesión')">👤</button>
+                <button class="icon-btn" onclick="window.location.href='comparar.html'" title="Comparar productos">⚖️</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Detalles del Producto -->
+    <div class="product-detail-container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a>
+            <span>/</span>
+            <a href="index.html#productos">Productos</a>
+            <span>/</span>
+            <span id="breadcrumbProduct">Producto</span>
+        </div>
+
+        <div class="product-detail-grid">
+            <div class="product-image-section">
+                <div class="product-main-image" id="productImage">🖱️</div>
+            </div>
+
+            <div class="product-info-section">
+                <h1 id="productTitle">Cargando...</h1>
+                
+                <div class="product-rating">
+                    <div class="stars">★★★★★</div>
+                    <span class="rating-text">(4.8/5 - 247 reseñas)</span>
+                </div>
+
+                <div class="product-price-section">
+                    <div class="current-price" id="productPrice">$0</div>
+                    <div id="priceInfo"></div>
+                </div>
+
+                <div class="product-description">
+                    <h2>Descripción</h2>
+                    <p id="productDescription">Cargando descripción...</p>
+                </div>
+
+                <div class="product-features">
+                    <h3>Características principales</h3>
+                    <ul class="features-list" id="featuresList">
+                        <li>Cargando características...</li>
+                    </ul>
+                </div>
+
+                <div class="product-actions">
+                    <button class="btn-contact" onclick="contactSeller()">
+                        📞 Contactar para comprar
+                    </button>
+                    <button class="btn-compare" onclick="addToCompare()">
+                        ⚖️ Comparar
+                    </button>
+                </div>
+
+                <div class="product-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">Categoría:</span>
+                        <span class="meta-value" id="productCategory">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Marca:</span>
+                        <span class="meta-value" id="productBrand">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">SKU:</span>
+                        <span class="meta-value" id="productSku">-</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">Disponibilidad:</span>
+                        <span class="meta-value" style="color: #10b981;">✓ En stock</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Productos Relacionados -->
+        <div class="related-products">
+            <h2>Productos Relacionados</h2>
+            <div class="products-grid" id="relatedProducts"></div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🖥️ TechStore</h3>
+                <p>Tu tienda de confianza para periféricos y equipos gaming. Calidad garantizada y los mejores precios del mercado.</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Garantías</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📞 +57 300 123 4567</li>
+                    <li>📧 info@techstore.com</li>
+                    <li>📍 Cúcuta, Colombia</li>
+                    <li>🕐 Lun-Vie: 9am-7pm</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="product-detail.js"></script>
+</body>
+</html>

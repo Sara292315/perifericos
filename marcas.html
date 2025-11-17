@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcas - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .brands-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .brands-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .brands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .brands-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px;
+        }
+
+        .brands-intro h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .brands-intro p {
+            font-size: 18px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .brand-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .brand-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .brand-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 12px;
+        }
+
+        .brand-category {
+            color: #667eea;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .brand-description {
+            color: #666;
+            line-height: 1.6;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .brand-products-count {
+            display: inline-block;
+            background: #f8f9fa;
+            color: #667eea;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .featured-brands {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .featured-brands-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .featured-brands h2 {
+            text-align: center;
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .featured-brand {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .featured-brand:hover {
+            transform: scale(1.05);
+        }
+
+        .featured-logo {
+            font-size: 80px;
+            margin-bottom: 15px;
+        }
+
+        .featured-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .why-brands {
+            max-width: 800px;
+            margin: 80px auto 0;
+            text-align: center;
+        }
+
+        .why-brands h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 40px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+        }
+
+        .benefit-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .benefit-text {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .brands-hero h1 {
+                font-size: 32px;
+            }
+
+            .brands-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .featured-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        🚚 ENVÍOS GRATIS A TODA COLOMBIA - Compra ahora y recibe en 24-48 horas
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🖥️ TechStore</div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="marcas.html">Marcas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" onclick="window.location.href='index.html'">🔍</button>
+                <button class="icon-btn" onclick="alert('Iniciar sesión')">👤</button>
+                <button class="icon-btn" onclick="window.location.href='comparar.html'" title="Comparar productos">⚖️</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero de Marcas -->
+    <section class="brands-hero">
+        <h1>🏆 Nuestras Marcas</h1>
+        <p>Trabajamos con las mejores marcas del mercado</p>
+    </section>
+
+    <!-- Contenedor de Marcas -->
+    <div class="brands-container">
+        <div class="brands-intro">
+            <h2>Calidad y Confianza Garantizada</h2>
+            <p>En TechStore trabajamos únicamente con marcas reconocidas mundialmente por su calidad, innovación y soporte técnico. Cada producto que ofrecemos está respaldado por fabricantes líderes en la industria tecnológica.</p>
+        </div>
+
+        <div class="brands-grid">
+            <div class="brand-card">
+                <div class="brand-logo">🖱️</div>
+                <div class="brand-name">TechGear Pro</div>
+                <div class="brand-category">Periféricos Gaming</div>
+                <p class="brand-description">
+                    Marca líder en periféricos gaming con tecnología de punta. Especializada en mouses, teclados y accesorios para gamers profesionales.
+                </p>
+                <span class="brand-products-count">12 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">⌨️</div>
+                <div class="brand-name">MechaTech</div>
+                <div class="brand-category">Teclados Mecánicos</div>
+                <p class="brand-description">
+                    Expertos en teclados mecánicos de alta gama. Switches personalizables y diseños ergonómicos para máxima comodidad y rendimiento.
+                </p>
+                <span class="brand-products-count">8 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">🖥️</div>
+                <div class="brand-name">VisionMax</div>
+                <div class="brand-category">Monitores Gaming</div>
+                <p class="brand-description">
+                    Monitores de alta frecuencia con tecnología IPS y HDR. Perfectos para gaming competitivo y diseño profesional.
+                </p>
+                <span class="brand-products-count">15 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">🎧</div>
+                <div class="brand-name">SoundWave Elite</div>
+                <div class="brand-category">Audio Gaming</div>
+                <p class="brand-description">
+                    Audífonos premium con sonido envolvente 7.1 y cancelación de ruido activa. Comodidad superior para sesiones prolongadas.
+                </p>
+                <span class="brand-products-count">10 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">📹</div>
+                <div class="brand-name">StreamVision</div>
+                <div class="brand-category">Streaming & Video</div>
+                <p class="brand-description">
+                    Webcams y equipos de streaming profesionales. Calidad 4K y software optimizado para creadores de contenido.
+                </p>
+                <span class="brand-products-count">6 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">💾</div>
+                <div class="brand-name">SpeedDrive</div>
+                <div class="brand-category">Almacenamiento</div>
+                <p class="brand-description">
+                    SSDs de ultra alta velocidad con tecnología NVMe Gen4. Máximo rendimiento para gaming y edición profesional.
+                </p>
+                <span class="brand-products-count">9 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">🪑</div>
+                <div class="brand-name">ComfortZone Elite</div>
+                <div class="brand-category">Mobiliario Gaming</div>
+                <p class="brand-description">
+                    Sillas gaming ergonómicas diseñadas por especialistas. Soporte lumbar ajustable y materiales premium de larga duración.
+                </p>
+                <span class="brand-products-count">5 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">💡</div>
+                <div class="brand-name">RGBMaster</div>
+                <div class="brand-category">Iluminación RGB</div>
+                <p class="brand-description">
+                    Sistemas de iluminación RGB sincronizables. Crea el ambiente perfecto para tu setup con millones de colores.
+                </p>
+                <span class="brand-products-count">7 productos disponibles</span>
+            </div>
+
+            <div class="brand-card">
+                <div class="brand-logo">🎮</div>
+                <div class="brand-name">ProGamer Elite</div>
+                <div class="brand-category">Accesorios Gaming</div>
+                <p class="brand-description">
+                    Accesorios especializados para gamers profesionales. Desde mouse pads hasta soportes de monitor ajustables.
+                </p>
+                <span class="brand-products-count">14 productos disponibles</span>
+            </div>
+        </div>
+
+        <!-- Por qué nuestras marcas -->
+        <div class="why-brands">
+            <h2>¿Por qué elegir nuestras marcas?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div class="benefit-title">Garantía Oficial</div>
+                    <p class="benefit-text">Todos los productos cuentan con garantía del fabricante</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🏅</div>
+                    <div class="benefit-title">Calidad Premium</div>
+                    <p class="benefit-text">Solo trabajamos con marcas líderes en el mercado</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🛠️</div>
+                    <div class="benefit-title">Soporte Técnico</div>
+                    <p class="benefit-text">Asistencia especializada de cada marca</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🔄</div>
+                    <div class="benefit-title">Actualizaciones</div>
+                    <p class="benefit-text">Software y firmware siempre actualizado</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Marcas Destacadas -->
+    <section class="featured-brands">
+        <div class="featured-brands-container">
+            <h2>Marcas Más Populares</h2>
+            <div class="featured-grid">
+                <div class="featured-brand">
+                    <div class="featured-logo">🖱️</div>
+                    <div class="featured-name">TechGear Pro</div>
+                </div>
+                <div class="featured-brand">
+                    <div class="featured-logo">⌨️</div>
+                    <div class="featured-name">MechaTech</div>
+                </div>
+                <div class="featured-brand">
+                    <div class="featured-logo">🖥️</div>
+                    <div class="featured-name">VisionMax</div>
+                </div>
+                <div class="featured-brand">
+                    <div class="featured-logo">🎧</div>
+                    <div class="featured-name">SoundWave</div>
+                </div>
+                <div class="featured-brand">
+                    <div class="featured-logo">💾</div>
+                    <div class="featured-name">SpeedDrive</div>
+                </div>
+                <div class="featured-brand">
+                    <div class="featured-logo">🎮</div>
+                    <div class="featured-name">ProGamer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🖥️ TechStore</h3>
+                <p>Tu tienda de confianza para periféricos y equipos gaming. Calidad garantizada y los mejores precios del mercado.</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="#">Envíos y Devoluciones</a></li>
+                    <li><a href="#">Términos y Condiciones</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="#">Garantías</a></li>
+                    <li><a href="#">Soporte Técnico</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📞 +57 300 123 4567</li>
+                    <li>📧 info@techstore.com</li>
+                    <li>📍 Cúcuta, Colombia</li>
+                    <li>🕐 Lun-Vie: 9am-7pm</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
