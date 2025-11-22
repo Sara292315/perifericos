@@ -101,7 +101,7 @@ function renderComparison() {
                         <td class="spec-label">Acción</td>
                         ${productsToCompare.map(p => `
                             <td>
-                                <button class="btn-add-cart" onclick="viewProductDetail(${p.id})">
+                                <button class="btn-add-cart" onclick="goToProductDetail(${p.id})">
                                     Ver Detalles
                                 </button>
                             </td>
@@ -178,8 +178,20 @@ function renderQuickAdd() {
     `).join('');
 }
 
+// Función para ver detalles desde productos relacionados
+function viewProductDetail(productId) {
+    localStorage.setItem('selectedProduct', productId);
+    window.location.href = 'producto.html';
+}
+
 // Inicializar
 document.addEventListener('DOMContentLoaded', function() {
     renderComparison();
     renderQuickAdd();
 });
+
+// Función para ir a la página de detalles del producto
+function goToProductDetail(productId) {
+    localStorage.setItem('selectedProduct', productId);
+    window.location.href = 'producto.html';
+}
