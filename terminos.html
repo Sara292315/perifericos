@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - TechStore</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .terms-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .terms-hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .terms-hero p {
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        .terms-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .last-update {
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 40px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .terms-nav {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            margin-bottom: 40px;
+        }
+
+        .terms-nav h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .terms-nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .terms-nav a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.3s;
+            display: block;
+        }
+
+        .terms-nav a:hover {
+            background: #f0f0f0;
+        }
+
+        .terms-content {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .terms-section {
+            margin-bottom: 50px;
+            padding-top: 20px;
+        }
+
+        .terms-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .terms-section h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .terms-section h3 {
+            font-size: 22px;
+            color: #667eea;
+            margin: 30px 0 15px;
+        }
+
+        .terms-section p {
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            font-size: 16px;
+            text-align: justify;
+        }
+
+        .terms-section ul, .terms-section ol {
+            color: #555;
+            line-height: 1.9;
+            margin-bottom: 20px;
+            padding-left: 30px;
+        }
+
+        .terms-section li {
+            margin-bottom: 12px;
+            font-size: 16px;
+        }
+
+        .highlight-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #333;
+        }
+
+        .warning-box {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 8px;
+        }
+
+        .warning-box strong {
+            color: #856404;
+        }
+
+        .contact-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .contact-box h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .contact-box p {
+            margin-bottom: 25px;
+            font-size: 16px;
+        }
+
+        .contact-box a {
+            color: white;
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .btn-accept {
+            display: inline-block;
+            background: white;
+            color: #764ba2;
+            padding: 15px 40px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s;
+        }
+
+        .btn-accept:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .terms-hero h1 {
+                font-size: 32px;
+            }
+
+            .terms-content {
+                padding: 30px 20px;
+            }
+
+            .terms-section h2 {
+                font-size: 24px;
+            }
+
+            .terms-section h3 {
+                font-size: 20px;
+            }
+
+            .terms-nav {
+                position: static;
+            }
+
+            .terms-nav ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Top -->
+    <div class="header-top">
+        Expertos en hardware, aliados de tu bolsillo.💸
+    </div>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">🖥️ TechStore</div>
+            
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#productos">Productos</a></li>
+                <li><a href="ofertas.html">Ofertas</a></li>
+                <li><a href="marcas.html">Marcas</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <button class="icon-btn" onclick="window.location.href='index.html'">🔍</button>
+                <button class="icon-btn" onclick="alert('Iniciar sesión')">👤</button>
+                <button class="icon-btn" onclick="window.location.href='comparar.html'" title="Comparar productos">⚖️</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="terms-hero">
+        <h1>📋 Términos y Condiciones</h1>
+        <p>Por favor, lea cuidadosamente antes de usar nuestros servicios de asesoramiento</p>
+    </section>
+
+    <!-- Contenedor de Términos -->
+    <div class="terms-container">
+        <div class="last-update">
+            📅 Última actualización: 22 de noviembre de 2025
+        </div>
+
+        <!-- Navegación rápida -->
+        <div class="terms-nav">
+            <h3>Navegación Rápida</h3>
+            <ul>
+                <li><a href="#aceptacion">1. Aceptación</a></li>
+                <li><a href="#uso">2. Uso del Sitio</a></li>
+                <li><a href="#productos">3. Información</a></li>
+                <li><a href="#precios">4. Precios</a></li>
+                <li><a href="#garantias">5. Garantías y Envíos</a></li>
+                <li><a href="#privacidad">6. Privacidad</a></li>
+                <li><a href="#propiedad">7. Propiedad Intelectual</a></li>
+                <li><a href="#limitacion">8. Limitación</a></li>
+                <li><a href="#modificaciones">9. Modificaciones</a></li>
+                <li><a href="#contacto">10. Contacto</a></li>
+            </ul>
+        </div>
+
+        <div class="terms-content">
+            <!-- Sección 1 -->
+            <div class="terms-section" id="aceptacion">
+                <h2>1. Aceptación de los Términos</h2>
+                <p>
+                    Bienvenido a TechStore, su plataforma de asesoramiento y guía de compra en periféricos y tecnología. Al acceder y utilizar este sitio web, usted acepta estar sujeto a estos términos y condiciones de uso, todas las leyes y regulaciones aplicables.
+                </p>
+                <p>
+                    TechStore es una plataforma informativa que proporciona asesoramiento, comparativas y guías para ayudarle a tomar decisiones informadas sobre la compra de productos tecnológicos. No realizamos ventas directas, sino que orientamos a nuestros usuarios hacia las mejores opciones del mercado.
+                </p>
+                <div class="highlight-box">
+                    <p><strong>Importante:</strong> Al utilizar nuestros servicios de asesoramiento y consultar información en nuestro sitio, usted acepta automáticamente estos términos y condiciones.</p>
+                </div>
+            </div>
+
+            <!-- Sección 2 -->
+            <div class="terms-section" id="uso">
+                <h2>2. Uso del Sitio Web</h2>
+                <h3>2.1 Licencia de Uso</h3>
+                <p>
+                    Se le otorga permiso para descargar temporalmente una copia de los materiales en el sitio web de TechStore para visualización transitoria personal y no comercial únicamente. Esta es la concesión de una licencia, no una transferencia de título.
+                </p>
+                
+                <h3>2.2 Restricciones</h3>
+                <p>Bajo esta licencia, usted NO puede:</p>
+                <ul>
+                    <li>Modificar o copiar los materiales</li>
+                    <li>Usar los materiales para ningún propósito comercial o para exhibición pública</li>
+                    <li>Intentar descompilar o realizar ingeniería inversa de cualquier software contenido en el sitio</li>
+                    <li>Eliminar cualquier derecho de autor u otras notaciones de propiedad de los materiales</li>
+                    <li>Transferir los materiales a otra persona o "reflejar" los materiales en cualquier otro servidor</li>
+                </ul>
+
+                <h3>2.3 Conducta del Usuario</h3>
+                <p>Los usuarios se comprometen a:</p>
+                <ul>
+                    <li>Proporcionar información veraz y actualizada</li>
+                    <li>Mantener la confidencialidad de sus credenciales de acceso</li>
+                    <li>No utilizar el sitio para actividades ilegales o no autorizadas</li>
+                    <li>No interferir con el funcionamiento del sitio web</li>
+                    <li>Respetar los derechos de otros usuarios</li>
+                </ul>
+            </div>
+
+            <!-- Sección 3 -->
+            <div class="terms-section" id="productos">
+                <h2>3. Información de Productos y Servicios</h2>
+                <h3>3.1 Naturaleza del Servicio</h3>
+                <p>
+                    TechStore es una plataforma de información y asesoramiento técnico. Proporcionamos guías detalladas, comparativas, reseñas y recomendaciones sobre productos tecnológicos y periféricos disponibles en el mercado.
+                </p>
+                
+                <h3>3.2 No Somos Vendedores</h3>
+                <p>
+                    TechStore NO realiza ventas directas de productos. Nuestro servicio consiste en:
+                </p>
+                <ul>
+                    <li>Proporcionar información técnica detallada sobre productos</li>
+                    <li>Ofrecer comparativas entre diferentes opciones</li>
+                    <li>Asesorar sobre las mejores opciones según necesidades específicas</li>
+                    <li>Orientar sobre dónde y cómo adquirir los productos</li>
+                    <li>Brindar soporte en la selección de periféricos y tecnología</li>
+                </ul>
+
+                <h3>3.3 Exactitud de la Información</h3>
+                <p>
+                    Hacemos todo lo posible por mantener la información actualizada y precisa. Sin embargo, las especificaciones técnicas, precios y disponibilidad de productos pueden cambiar sin previo aviso por parte de los fabricantes y distribuidores.
+                </p>
+
+                <h3>3.4 Enlaces a Terceros</h3>
+                <p>
+                    Nuestro sitio puede contener enlaces a tiendas, fabricantes y distribuidores externos. TechStore no es responsable por las políticas, prácticas o contenido de estos sitios de terceros.
+                </p>
+
+                <div class="warning-box">
+                    <p><strong>Aviso:</strong> Siempre verifique la información directamente con el vendedor o fabricante antes de realizar cualquier compra. Los precios y disponibilidad mostrados son referenciales.</p>
+                </div>
+            </div>
+
+            <!-- Sección 4 -->
+            <div class="terms-section" id="precios">
+                <h2>4. Información de Precios</h2>
+                <h3>4.1 Precios Referenciales</h3>
+                <p>
+                    Los precios mostrados en TechStore son exclusivamente de carácter informativo y referencial. Estos precios pueden variar según el proveedor, ubicación, disponibilidad y condiciones del mercado.
+                </p>
+
+                <h3>4.2 Variación de Precios</h3>
+                <p>
+                    Los precios están sujetos a cambios constantes y pueden diferir de los mostrados en nuestro sitio. TechStore no se hace responsable por diferencias de precio entre lo mostrado en nuestra plataforma y el precio real de venta.
+                </p>
+
+                <h3>4.3 Servicio de Asesoramiento</h3>
+                <p>
+                    Nuestro servicio de asesoramiento incluye:
+                </p>
+                <ul>
+                    <li>Consultas personalizadas sobre productos tecnológicos</li>
+                    <li>Recomendaciones basadas en necesidades específicas</li>
+                    <li>Comparativas técnicas entre diferentes opciones</li>
+                    <li>Orientación sobre relación calidad-precio</li>
+                    <li>Información sobre mejores lugares de compra</li>
+                    <li>Soporte en la toma de decisiones de compra</li>
+                </ul>
+
+                <h3>4.4 Gratuidad del Servicio</h3>
+                <p>
+                    El servicio de asesoramiento y consulta de información en TechStore es completamente gratuito para todos los usuarios. No cobramos comisiones ni tarifas por nuestras recomendaciones.
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>Importante:</strong> TechStore funciona como una guía informativa. Las transacciones de compra se realizan directamente entre el usuario y el vendedor o distribuidor que elija.</p>
+                </div>
+            </div>
+
+            <!-- Sección 5 -->
+            <div class="terms-section" id="garantias">
+                <h2>5. Información sobre Garantías y Devoluciones</h2>
+                
+                <div class="warning-box">
+                    <p><strong>⚠️ AVISO IMPORTANTE:</strong> TechStore NO es responsable de garantías, devoluciones ni envíos. Somos únicamente una plataforma informativa de asesoramiento. Todas las transacciones, garantías y devoluciones son responsabilidad exclusiva del vendedor donde usted realice su compra.</p>
+                </div>
+
+                <h3>5.1 Limitación de Responsabilidad</h3>
+                <p>
+                    TechStore proporciona únicamente información orientativa sobre las garantías que generalmente ofrecen los fabricantes y distribuidores. <strong>NO somos responsables de:</strong>
+                </p>
+                <ul>
+                    <li>El cumplimiento de garantías por parte de terceros vendedores</li>
+                    <li>Procesos de devolución de productos comprados externamente</li>
+                    <li>Reparaciones o reemplazos de productos</li>
+                    <li>Tiempos de respuesta de vendedores o fabricantes</li>
+                    <li>Rechazos de garantía por parte del vendedor</li>
+                    <li>Costos asociados a envíos de garantía</li>
+                    <li>Disputas entre compradores y vendedores</li>
+                </ul>
+
+                <h3>5.2 Información General sobre Garantías</h3>
+                <p>A modo informativo, las garantías de productos tecnológicos suelen cubrir:</p>
+                <ul>
+                    <li>Defectos de fabricación</li>
+                    <li>Fallas en el funcionamiento normal del producto</li>
+                    <li>Componentes defectuosos</li>
+                </ul>
+
+                <p>Y habitualmente NO cubren:</p>
+                <ul>
+                    <li>Daños por mal uso o negligencia</li>
+                    <li>Daños causados por líquidos</li>
+                    <li>Modificaciones no autorizadas</li>
+                    <li>Daños físicos o estéticos</li>
+                    <li>Desgaste normal por uso</li>
+                </ul>
+
+                <h3>5.3 Información sobre Devoluciones</h3>
+                <p>
+                    <strong>Las políticas de devolución son establecidas exclusivamente por cada vendedor, NO por TechStore.</strong> Como plataforma de asesoramiento, solo proporcionamos información general sobre lo que normalmente incluyen estas políticas.
+                </p>
+
+                <h3>5.4 Información sobre Envíos</h3>
+                <p>
+                    <strong>TechStore NO realiza envíos ni se responsabiliza por la logística de entrega.</strong> Los envíos son gestionados completamente por el vendedor donde usted decida realizar su compra.
+                </p>
+                <p>
+                    No somos responsables por:
+                </p>
+                <ul>
+                    <li>Retrasos en la entrega</li>
+                    <li>Productos dañados durante el envío</li>
+                    <li>Pérdida de paquetes</li>
+                    <li>Costos de envío</li>
+                    <li>Tiempos de tránsito</li>
+                    <li>Problemas con transportadoras</li>
+                    <li>Direcciones incorrectas proporcionadas por el usuario</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <p><strong>Su Responsabilidad como Comprador:</strong></p>
+                    <ul>
+                        <li>Verificar las políticas de garantía, devolución y envío DEL VENDEDOR antes de comprar</li>
+                        <li>Solicitar toda la información por escrito al vendedor</li>
+                        <li>Leer los términos y condiciones del vendedor</li>
+                        <li>Verificar tiempos de entrega y costos de envío</li>
+                        <li>Guardar todos los recibos, comprobantes y empaques originales</li>
+                        <li>Contactar directamente al vendedor ante cualquier problema</li>
+                    </ul>
+                </div>
+
+                <p style="margin-top: 20px;">
+                    <strong>Recuerde:</strong> TechStore solo ofrece asesoramiento e información. Cualquier reclamo, garantía, devolución o problema con envíos debe dirigirse directamente al vendedor o fabricante del producto.
+                </p>
+            </div>
+
+            <!-- Sección 6 -->
+            <div class="terms-section" id="privacidad">
+                <h2>6. Privacidad y Protección de Datos</h2>
+                <p>
+                    En TechStore nos tomamos muy en serio la privacidad de nuestros usuarios. La información que recopilamos se utiliza únicamente para mejorar nuestros servicios de asesoramiento y proporcionar una mejor experiencia.
+                </p>
+
+                <h3>6.1 Información que Recopilamos</h3>
+                <ul>
+                    <li>Información de contacto (nombre, email, teléfono) cuando solicita asesoramiento</li>
+                    <li>Preferencias de productos y consultas realizadas</li>
+                    <li>Información de navegación (cookies, páginas visitadas)</li>
+                    <li>Datos técnicos del dispositivo utilizado</li>
+                </ul>
+
+                <h3>6.2 Uso de la Información</h3>
+                <p>Utilizamos su información para:</p>
+                <ul>
+                    <li>Proporcionar asesoramiento personalizado</li>
+                    <li>Responder a sus consultas técnicas</li>
+                    <li>Mejorar nuestros contenidos y recomendaciones</li>
+                    <li>Enviar información relevante (con su consentimiento)</li>
+                    <li>Analizar tendencias y preferencias de usuarios</li>
+                </ul>
+
+                <h3>6.3 Protección de Datos</h3>
+                <p>
+                    Implementamos medidas de seguridad para proteger su información personal. Nunca compartiremos, venderemos o alquilaremos su información personal a terceros sin su consentimiento explícito.
+                </p>
+
+                <h3>6.4 Cookies</h3>
+                <p>
+                    Utilizamos cookies para mejorar su experiencia de navegación, recordar sus preferencias y analizar el uso del sitio. Puede configurar su navegador para rechazar cookies, aunque esto puede afectar algunas funcionalidades.
+                </p>
+
+                <div class="highlight-box">
+                    <p><strong>Sus Derechos:</strong> Tiene derecho a acceder, rectificar, cancelar u oponerse al uso de sus datos personales en cualquier momento. Contáctenos para ejercer estos derechos.</p>
+                </div>
+            </div>
+
+            <!-- Sección 7 -->
+            <div class="terms-section" id="propiedad">
+                <h2>7. Propiedad Intelectual</h2>
+                <p>
+                    Todo el contenido incluido en este sitio, como texto, gráficos, logotipos, íconos, imágenes, clips de audio, descargas digitales y compilaciones de datos, es propiedad de TechStore o de sus proveedores de contenido y está protegido por las leyes colombianas e internacionales de derechos de autor.
+                </p>
+
+                <h3>7.1 Marcas Registradas</h3>
+                <p>
+                    TechStore y otros gráficos, logotipos, encabezados de página, íconos de botones, scripts y nombres de servicios son marcas comerciales o imagen comercial de TechStore en Colombia y otros países.
+                </p>
+
+                <h3>7.2 Uso Autorizado</h3>
+                <p>
+                    Las marcas de los fabricantes mencionadas en nuestro sitio pertenecen a sus respectivos propietarios. TechStore es un distribuidor autorizado que utiliza estas marcas únicamente con fines informativos.
+                </p>
+            </div>
+
+            <!-- Sección 8 -->
+            <div class="terms-section" id="limitacion">
+                <h2>8. Limitación de Responsabilidad</h2>
+                <p>
+                    TechStore es una plataforma informativa y de asesoramiento. Como tal, nuestra responsabilidad está limitada a proporcionar información precisa y actualizada al mejor de nuestra capacidad.
+                </p>
+
+                <h3>8.1 Naturaleza del Servicio</h3>
+                <p>
+                    TechStore NO es responsable por:
+                </p>
+                <ul>
+                    <li>Transacciones realizadas con vendedores o distribuidores externos</li>
+                    <li>Calidad, autenticidad o estado de productos adquiridos</li>
+                    <li>Cumplimiento de garantías por parte de terceros</li>
+                    <li>Problemas de envío, entrega o logística</li>
+                    <li>Diferencias de precio entre nuestra información y precios reales</li>
+                    <li>Cambios en especificaciones técnicas de productos</li>
+                    <li>Disponibilidad de productos en el mercado</li>
+                </ul>
+
+                <h3>8.2 Información de Terceros</h3>
+                <p>
+                    La información sobre precios, disponibilidad y especificaciones proviene de diversas fuentes. Aunque verificamos la información, no garantizamos su exactitud absoluta en todo momento.
+                </p>
+
+                <h3>8.3 Decisiones de Compra</h3>
+                <p>
+                    Las decisiones de compra son responsabilidad exclusiva del usuario. Nuestras recomendaciones son orientativas y deben ser evaluadas según las necesidades y circunstancias específicas de cada persona.
+                </p>
+
+                <h3>8.4 Enlaces Externos</h3>
+                <p>
+                    No somos responsables por el contenido, políticas o prácticas de sitios web de terceros a los que podamos enlazar. El acceso a estos sitios es bajo su propio riesgo.
+                </p>
+
+                <div class="warning-box">
+                    <p><strong>Importante:</strong> TechStore actúa únicamente como plataforma informativa. Cualquier reclamación sobre productos o servicios debe dirigirse directamente al vendedor o fabricante correspondiente.</p>
+                </div>
+            </div>
+
+            <!-- Sección 9 -->
+            <div class="terms-section" id="modificaciones">
+                <h2>9. Modificaciones de los Términos</h2>
+                <p>
+                    TechStore se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web.
+                </p>
+                
+                <p>
+                    Es responsabilidad del usuario revisar periódicamente estos términos. El uso continuado del sitio web después de la publicación de cambios constituye su aceptación de dichos cambios.
+                </p>
+
+                <div class="warning-box">
+                    <p><strong>Recomendación:</strong> Revise esta página regularmente para estar al tanto de cualquier cambio en nuestros términos y condiciones.</p>
+                </div>
+            </div>
+
+            <!-- Sección 10 -->
+            <div class="terms-section" id="contacto">
+                <h2>10. Información de Contacto</h2>
+                <p>
+                    Si tiene alguna pregunta sobre estos Términos y Condiciones, puede contactarnos a través de:
+                </p>
+                
+                <ul>
+                    <li><strong>Correo electrónico:</strong> legal@techstore.com</li>
+                    <li><strong>Teléfono:</strong> +57 300 123 4567</li>
+                    <li><strong>WhatsApp:</strong> +57 300 123 4567</li>
+                    <li><strong>Dirección:</strong> Calle 10 #15-25, Local 203, Cúcuta, Norte de Santander, Colombia</li>
+                    <li><strong>Horario de atención:</strong> Lunes a Viernes de 9:00 AM a 7:00 PM</li>
+                </ul>
+
+                <h3>10.1 Ley Aplicable</h3>
+                <p>
+                    Estos términos y condiciones se rigen por las leyes de la República de Colombia. Cualquier disputa relacionada con estos términos será resuelta por los tribunales competentes de Cúcuta, Norte de Santander.
+                </p>
+
+                <h3>10.2 Resolución de Conflictos</h3>
+                <p>
+                    En caso de controversia o reclamo derivado de o relacionado con estos términos, las partes acuerdan primero intentar resolver el asunto de manera amistosa mediante negociación directa. Si no se llega a un acuerdo, se procederá según lo establecido por la legislación colombiana.
+                </p>
+            </div>
+
+            <!-- Caja de Contacto -->
+            <div class="contact-box">
+                <h3>⚠️ Recuerde: TechStore es solo asesoramiento</h3>
+                <p>No realizamos ventas, envíos ni gestionamos garantías. Para cualquier problema con un producto, contacte directamente al vendedor donde lo compró.</p>
+                <p style="margin-top: 20px; font-size: 16px;">Si necesita asesoramiento para futuras compras, estamos aquí para ayudarle:</p>
+                <a href="contacto.html" class="btn-solicitar">Solicitar Asesoramiento Gratuito</a>
+
+            </div>
+
+            <!-- Última nota -->
+            <div class="highlight-box" style="margin-top: 40px;">
+                <p style="text-align: center;">
+                    <strong>Al utilizar nuestro sitio web y servicios de asesoramiento, usted reconoce que ha leído, entendido y aceptado estos términos y condiciones en su totalidad.</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>🖥️ TechStore</h3>
+                <p>Tu tienda de confianza para periféricos y equipos gaming. Calidad garantizada y los mejores precios del mercado.</p>
+                <div class="social-icons">
+                    <div class="social-icon">📘</div>
+                    <div class="social-icon">📷</div>
+                    <div class="social-icon">🐦</div>
+                    <div class="social-icon">📺</div>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Información</h3>
+                <ul>
+                    <li><a href="#">Sobre Nosotros</a></li>
+                    <li><a href="terminos.html">Términos y Condiciones</a></li>
+                    <li><a href="faq.html">Política de Privacidad</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Atención al Cliente</h3>
+                <ul>
+                    <li><a href="#">Preguntas Frecuentes</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <ul>
+                    <li>📞 +57 3185838072</li>
+                    <li>📧est_sm_morgensztern@fesc.edu.co</li>
+                    <li>📍 Cúcuta, Colombia</li>
+                    <li>🕐 Lun-Vie: 9am-6pm</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Smooth scroll para los enlaces de navegación
+        document.querySelectorAll('.terms-nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
